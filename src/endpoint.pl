@@ -7,6 +7,8 @@
 :- http_handler('/get-mine', get_mine, []).
 
 :- dynamic pos/3.
+:- dynamic mine/2.
+:- dynamic seed/0.
 
 range(X,X,[X]) :- !.
 range(X,Y,[X|Xs]) :-
@@ -14,20 +16,13 @@ range(X,Y,[X|Xs]) :-
     Z is X+1,
     range(Z,Y,Xs).
 
-map(Predicate, [H|T]) :-
-    call(Predicate, H),
-    map(Predicate, T).
-
-mine(0,0).
-mine(1,1).
-mine(2,2).
-mine(3,3).
-mine(4,4).
-mine(5,5).
-mine(6,6).
-mine(7,7).
-mine(8,8).
-mine(9,9).
+seed_mine(10).
+seed_mine(N):-
+	S is N+1,
+	random_between(0, 9, X),
+	random_between(0, 9, Y),
+	assert(mine(X,Y)),
+	seed_mine(S).	
 
 seed_row(10, _).
 seed_row(N, R) :-
@@ -42,6 +37,8 @@ seed_pos(N) :-
 	seed_row(0, N),
 	seed_pos(S).
 
+seed_minesweeper :- seed_mine(0), seed_pos(0).
+
 ifThenElse(X,Y,_) :- X,!,Y.
 ifThenElse(_,_,Z) :- Z.
 
@@ -51,7 +48,8 @@ minesweeper(_Request) :-
 	   [p('Hello, I am using Prolog on Docker!')]).
 
 get_mine(Request) :-
-	seed_pos(0),
+	ifThenElse(seed, true, seed_minesweeper),
+	assert(seed),
     return_mine(DictOut),
     reply_json(DictOut).
 
