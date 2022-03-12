@@ -41,4 +41,5 @@ Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
 ## Fontes
 * https://github.com/vband/Campo-Minado
 * https://github.com/lohhans/MinesweeperProlog
-* https://buslogic.pro/content/docker 
+* https://buslogic.pro/content/docker
+* https://github.com/Anniepoo/swiplwebtut/
