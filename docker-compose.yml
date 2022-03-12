@@ -5,5 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - '.:/minesweeper/'
     ports:
       - 8000:8000
