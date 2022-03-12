@@ -43,3 +43,4 @@ Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
 * https://github.com/lohhans/MinesweeperProlog
 * https://buslogic.pro/content/docker
 * https://github.com/Anniepoo/swiplwebtut/
+* https://us.swi-prolog.org/pldoc/doc/home/jan/lib/swipl/library/http/http_json.pl
