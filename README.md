@@ -1,33 +1,24 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial, da home page do Projeto.
-
-**!! *Atenção: Renomeie o seu repositório para (Ano.Semestre)_(Grupo)_(Paradigma)_(NomeDoProjeto)*. !!** 
-
-Paradigmas:
- - Funcional
- - Logico
- - SMA
-
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
-
-**!! *Exemplo de título correto: 2021.2_G1_Logico_ProjetoRoteirosAereos*. !!**
- 
- (Apague essa seção)
-
-# NomeDoProjeto
+# Campo Minado
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
-**Nro do Grupo**: XX<br>
-**Paradigma**: XXXXXXXXXX<br>
+**Número do Grupo**: 04<br>
+**Paradigma**: Lógico<br>
 
 ## Alunos
-|Matrícula | Aluno |
-| -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| Foto | Matrícula | Nome | GitHub |
+|:--:|:--:|:--:|:--:|
+| <img src="./images/members/andre.jpg" width="100">| 15/0005563 | Andre Lucas Ferreira Lemos de Souza | [@andrelucasf](https://github.com/andrelucasf) 
+| <img src="./images/members/ruan.jpg" width="100">| 18/0030272 | Antonio Ruan Moura Barreto | [@RuanMoura](https://github.com/RuanMoura) 
+| <img src="./images/members/brenda.jpg" width="100">| 18/0041444 | Brenda Vitória dos Santos | [@brendavsantos](https://github.com/brendavsantos)
+| <img src="./images/members/estevao.jpg" width="100">| 18/0052616 | Estevão de Jesus Reis | [@estevaoreis25](https://github.com/estevaoreis25)
+| <img src="./images/members/joao.jpg" width="100">| 18/0033743 | Joao Pedro Silva de Carvalho | [@jps12](https://github.com/jps12) 
+| <img src="./images/members/sergio.jpg" width="100">| 18/0037439 | Sérgio de Almeida Cipriano Junior | [@sergiosacj](https://github.com/sergiosacj) 
+| <img src="./images/members/thiago.jpg" width="100">| 18/0028324 | Thiago Luiz de Souza Gomes| [@thiagomesUNB](https://github.com/thiagomesUNB) 
+| <img src="./images/members/victor.jpg" width="100">| 18/0028685 | Victor Samuel dos Santos Lucas| [@victordsantoss](https://github.com/victordsantoss) 
+| <img src="./images/members/vini.jpg" width="100">| 17/0115500 | Vinicius Vieira de Souza | [@faco400](https://github.com/faco400) 
 
 ## Sobre 
-Descreva o seu projeto em linhas gerais. 
+O projeto do paradigma lógico visa desenvolver uma aplicação do jogo campo minado (com todas as regras e peculiaridades) utilizando Prolog. 
 
 ## Screenshots
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
@@ -48,4 +39,5 @@ Adicione 1 ou mais vídeos com a execução do projeto.
 Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
 
 ## Fontes
-Caso utilize materiais de terceiros, referencie-os adequadamente.
+* https://github.com/vband/Campo-Minado
+* https://github.com/lohhans/MinesweeperProlog
