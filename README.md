@@ -24,8 +24,8 @@ O projeto do paradigma lógico visa desenvolver uma aplicação do jogo campo mi
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
 
 ## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
+**Linguagens**: Prolog<br>
+**Tecnologias**: SWI-Prolog version 8.5.5 for x86_64-linux e HTML<br>
 Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 Insira um manual ou um script para auxiliar ainda mais.
 
@@ -41,3 +41,4 @@ Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
 ## Fontes
 * https://github.com/vband/Campo-Minado
 * https://github.com/lohhans/MinesweeperProlog
+* https://buslogic.pro/content/docker 
