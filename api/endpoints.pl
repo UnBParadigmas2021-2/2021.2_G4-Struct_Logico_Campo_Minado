@@ -1,14 +1,10 @@
 :- use_module(library(http/http_files)).
 :- use_module(library(http/html_write)).
 :- use_module(library(http/http_json)).
+:- use_module(library(http/http_files)).
 
-:- http_handler('/', minesweeper, []).
+:- http_handler('/', http_reply_from_files('frontend', []), [prefix]).
 :- http_handler('/get-mine', get_mine, []).
-
-minesweeper(_Request) :-
-	reply_html_page(
-	   [title('Minesweeper')],
-	   [p('Hello, I am using Prolog on Docker!')]).
 
 get_mine(_Request) :-
 	ifThenElse(seed, true, seed_minesweeper),
