@@ -10,12 +10,6 @@
 :- dynamic mine/2.
 :- dynamic seed/0.
 
-range(X,X,[X]) :- !.
-range(X,Y,[X|Xs]) :-
-    X =< Y,
-    Z is X+1,
-    range(Z,Y,Xs).
-
 seed_mine(10).
 seed_mine(N):-
 	S is N+1,
@@ -25,16 +19,16 @@ seed_mine(N):-
 	seed_mine(S).	
 
 seed_row(10, _).
-seed_row(N, R) :-
-	S is N+1,
-	ifThenElse(mine(R,N), V = 9, V = 0),
-	assert(pos(R, N, V)),
-	seed_row(S, R).
+seed_row(Column, Row) :-
+	S is Column+1,
+	ifThenElse(mine(Row, Column), Value = 9, Value = 0),
+	assert(pos(Row, Column, Value)),
+	seed_row(S, Row).
 
 seed_pos(10).
-seed_pos(N) :-
-	S is N+1,
-	seed_row(0, N),
+seed_pos(Row) :-
+	S is Row+1,
+	seed_row(0, Row),
 	seed_pos(S).
 
 seed_minesweeper :- seed_mine(0), seed_pos(0).
@@ -47,8 +41,8 @@ minesweeper(_Request) :-
 	   [title('Minesweeper')],
 	   [p('Hello, I am using Prolog on Docker!')]).
 
-get_mine(Request) :-
-	ifThenElse(seed, true, seed_minesweeper),
+get_mine(_Request) :-
+	ifThenElse(seed, _, seed_minesweeper),
 	assert(seed),
     return_mine(DictOut),
     reply_json(DictOut).
