@@ -3,7 +3,6 @@
 :- use_module(library(http/http_json)).
 
 :- http_handler('/', minesweeper, []).
-
 :- http_handler('/get-mine', get_mine, []).
 
 :- dynamic pos/3.
@@ -13,10 +12,10 @@
 ifThenElse(X,Y,_) :- X,!,Y.
 ifThenElse(_,_,Z) :- Z.
 
-add(X,Y,N) :-
+add(X, Y, N) :-
   number(X),
   number(Y),
-  N is X+Y.
+  N is X + Y.
 
 seed_mine(10).
 seed_mine(N):-
@@ -26,16 +25,16 @@ seed_mine(N):-
 	assert(mine(Row, Column)),
 	seed_mine(S).
 
-check_mine_condition(Row, Column) :-
+check_borders(Row, Column) :-
   Row < 10,
   Column < 10,
   Row > -1,
   Column > -1.
 
 check_if_is_mine(Row, Column) :-
-  ifThenElse(check_mine_condition(Row, Column), mine(Row, Column), false).
+  ifThenElse(check_borders(Row, Column), mine(Row, Column), false).
 
-seed_non_mine(Row, Column) :-
+seed_safe_positions(Row, Column) :-
   add(Row, 1, RowPlus),
   add(Row, -1, RowMinus),
   add(Column, 1, ColumnPlus),
@@ -60,7 +59,7 @@ seed_non_mine(Row, Column) :-
 seed_row(10, _).
 seed_row(Column, Row) :-
 	S is Column+1,
-	ifThenElse(mine(Row, Column), assert(pos(Row, Column, 9)), seed_non_mine(Row, Column)),
+	ifThenElse(mine(Row, Column), assert(pos(Row, Column, 9)), seed_safe_positions(Row, Column)),
 	seed_row(S, Row).
 
 seed_pos(10).
