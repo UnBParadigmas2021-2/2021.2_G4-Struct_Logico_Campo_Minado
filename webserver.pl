@@ -4,7 +4,9 @@
 server(Port) :-
     http_server(http_dispatch, [port(Port)]).
  
-:- include('api/endpoint.pl').
+:- include('api/helpers.pl').
+:- include('api/minesweeper.pl').
+:- include('api/endpoints.pl').
 
 run :-
     server(8000),
