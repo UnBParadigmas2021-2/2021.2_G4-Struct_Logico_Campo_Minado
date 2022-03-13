@@ -42,10 +42,10 @@ minesweeper(_Request) :-
 	   [p('Hello, I am using Prolog on Docker!')]).
 
 get_mine(_Request) :-
-	ifThenElse(seed, _, seed_minesweeper),
+	ifThenElse(seed, true, seed_minesweeper),
 	assert(seed),
-    return_mine(DictOut),
-    reply_json(DictOut).
+  return_mine(DictOut),
+  reply_json(DictOut).
 
 return_mine(_{mine: [R0,R1,R2,R3,R4,R5,R6,R7,R8,R9]}) :-
 	findall(E, pos(0, _, E), R0),
