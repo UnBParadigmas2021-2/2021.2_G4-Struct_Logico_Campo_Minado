@@ -4,7 +4,7 @@
 server(Port) :-
     http_server(http_dispatch, [port(Port)]).
  
-:- include('src/endpoint.pl').
+:- include('api/endpoint.pl').
 
 run :-
     server(8000),
