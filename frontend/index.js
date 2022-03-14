@@ -2,6 +2,7 @@ var linhas = 10, colunas = 10, bombas = 10, matriz, tabela;
 
 const field = document.getElementById('field')
 
+//Consome a API
 const getUrl = (url) => {
   fetch(url)
     .then((response) => {
@@ -20,24 +21,14 @@ const getUrl = (url) => {
 getUrl('http://localhost:8000/get-mine')
 
 
-function montaTd(dado, classe) {
-  let td = document.createElement("td")
-  td.textContent = dado
-  td.classList.add(classe)
-
-  return td
-}
-
 function gerarTabela(l, c) {
-  console.log("Entrou no gera tabela")
   for (var i = 0; i < l; i++) {
     var tr = document.createElement("tr")
     tr.classList.add("linha");
     for (var j = 0; j < c; j++) {
       let td = document.createElement("td");
       td.classList.add("coluna");
-      //console.log(matriz[i][j])
-      td.textContent = matriz[i][j]
+      //td.textContent = matriz[i][j]
       tr.appendChild(td)
     }
     console.log(matriz[i][j])
@@ -47,9 +38,8 @@ function gerarTabela(l, c) {
 }
 
 function init() {
-  tabela = document.getElementById('CampoMinado');
+  tabela = document.getElementById('field');
   tabela.onclick = verificar;
-  //tabela.oncontextmenu = bandeira;
   gerarTabela(linhas, colunas);
 }
 
@@ -58,7 +48,7 @@ function verificar(event) {
   var linha = cell.parentNode.rowIndex;
   var coluna = cell.cellIndex;
   switch (matriz[linha][coluna]) {
-    case -1:
+    case 9:
       mostrarBombas();
       cell.style.backgroundColor = "red";
       tabela.onclick = undefined;
@@ -70,7 +60,6 @@ function verificar(event) {
       break;
     default:
       cell.innerHTML = matriz[linha][coluna];
-      cell.className = "n" + matriz[linha][coluna];
   }
   fimDeJogo();
 
@@ -83,7 +72,7 @@ function limparCelulas(l, c) {
         var cell = tabela.rows[i].cells[j];
         if (cell.className !== "blank") {
           switch (matriz[i][j]) {
-            case -1:
+            case 9:
               break;
             case 0:
               cell.innerHTML = "";
@@ -100,18 +89,25 @@ function limparCelulas(l, c) {
   }
 }
 
-/* function bandeira(event) {
-  var cell = event.target;
-  var linha = cell.parentNode.rowIndex;
-  var coluna = cell.cellIndex;
-  if (cell.className === "blocked") {
-    cell.className = "flag";
-    cell.innerHTML = "&#128681;";//&#9873;
-  } else if (cell.className === "flag") {
-    cell.className = "blocked";
-    cell.innerHTML = "";
+function mostrarBombas() {
+  for (var i = 0; i < linhas; i++) {
+    for (var j = 0; j < colunas; j++) {
+      if (matriz[i][j] === 9) {
+        var cell = tabela.rows[i].cells[j];
+        cell.innerHTML = "&#128163;";
+        cell.className = "blank";
+      }
+    }
   }
-  return false;
-} */
+}
+
+function fimDeJogo() {
+  var cells = document.querySelectorAll(".blocked, .flag");
+  if (cells.length === bombas) {
+    mostrarBombas();
+    tabela.onclick = undefined;
+    alert("Você venceu!");
+  }
+}
 
 onload = init;

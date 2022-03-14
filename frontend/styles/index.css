@@ -72,6 +72,13 @@ body{
     cursor: pointer;
 }
 
-.blocked, .flag {
-    background: lightgray;    
+
+
+.linha {
+    background-color: #cfb9f2;
 }
+
+.coluna{
+    padding: 8.78px 18.1px
+}
+
