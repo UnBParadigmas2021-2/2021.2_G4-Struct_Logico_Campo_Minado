@@ -7,10 +7,15 @@
 :- http_handler('/get-mine', get_mine, []).
 
 get_mine(_Request) :-
-	ifThenElse(seed, true, seed_minesweeper),
+	ifThenElse(seed, reset_minesweeper, seed_minesweeper),
 	assert(seed),
   return_mine(DictOut),
   reply_json(DictOut).
+
+reset_minesweeper :-
+  retractall(mine(_,_)),
+  retractall(pos(_,_,_)),
+  seed_minesweeper.
 
 return_mine(_{mine: [R0,R1,R2,R3,R4,R5,R6,R7,R8,R9]}) :-
 	findall(E, pos(0, _, E), R0),
