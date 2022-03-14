@@ -32,7 +32,7 @@ body{
 }
 
 .card-intro{
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .media-card{
@@ -48,6 +48,10 @@ body{
 }
 
 .field-table{
+    margin: 0 auto;
+}
+
+tbody{
     margin: 0 auto;
 }
 
@@ -90,17 +94,5 @@ body{
     transform: scale(1.1);
     transition: 0.4s;
     cursor: pointer;
-}
-
-.field-table{
-    margin: 0 auto
-}
-
-.linha {
-    background-color: #cfb9f2;
-}
-
-.coluna{
-    padding: 8.78px 18.1px
 }
 
