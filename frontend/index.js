@@ -132,7 +132,7 @@ function mostrarBombas() {
 
 function fimDeJogo() {
   console.log(countBombs)
-  if (100 - countBombs === bombas) {
+  if (100 - countBombs <= bombas) {
     mostrarBombas();
     tabela.onclick = undefined;
     alert("Você venceu!");
