@@ -1,6 +1,6 @@
 var linhas = 10, colunas = 10, bombas = 10, matriz, tabela;
-
 const field = document.getElementById('field')
+let gameBotton = document.getElementById('#init-game');
 
 //Consome a API
 const getUrl = (url) => {
@@ -109,5 +109,10 @@ function fimDeJogo() {
     alert("Você venceu!");
   }
 }
+
+gameBotton.addEventListener("click", (event)=>{
+  event.preventDefault(); 
+  console.log("fui clicado")
+})
 
 onload = init;
