@@ -51,6 +51,7 @@ function toggleMarkFlag(event){
     cell.innerHTML = ""
   else if (cell.innerHTML === "" && cell.style.backgroundColor !== "gray")
     cell.innerHTML = flag
+    cell.style.textAlign = "center";
 }
 
 function verificar(event) {
@@ -61,17 +62,20 @@ function verificar(event) {
     case 9:
       mostrarBombas();
       cell.style.backgroundColor = "red";
+      cell.style.textAlign = "center";
       tabela.onclick = undefined;
       tabela.oncontextmenu = undefined;
       alert("Você perdeu!");
       break;
     case 0:
       cell.style.backgroundColor = "gray"
+      cell.style.textAlign = "center";
       limparCelulas(linha, coluna);
       break;
     default:
       cell.innerHTML = matrix[linha][coluna];
       cell.style.backgroundColor = "gray"
+      cell.style.textAlign = "center";
   }
   fimDeJogo();
 
@@ -90,12 +94,14 @@ function limparCelulas(l, c) {
               cell.innerHTML = "";
               cell.className = "coluna blank";
               cell.style.backgroundColor = "gray"
+              cell.style.textAlign = "center";
               limparCelulas(i, j);
               break;
             default:
               cell.innerHTML = matrix[i][j];
               cell.className = "n" + matrix[i][j];
               cell.style.backgroundColor = "gray"
+              cell.style.textAlign = "center";
           }
         }
       }
@@ -110,6 +116,7 @@ function mostrarBombas() {
         var cell = tabela.rows[i].cells[j];
         cell.innerHTML = "&#128163;";
         cell.className = "blank";
+        cell.style.textAlign = "center";
       }
     }
   }

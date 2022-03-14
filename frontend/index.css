@@ -33,6 +33,7 @@ code {
 	width: 45px;
 	background: gray;
 	transition: 0.5s all;
+	text-align: center;
 }
 
 #campo table tr td img {
