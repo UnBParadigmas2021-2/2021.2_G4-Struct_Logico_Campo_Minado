@@ -68,13 +68,13 @@ function limparCelulas(l, c) {
     for (var j = c - 1; j <= c + 1; j++) {
       if (i >= 0 && i < linhas && j >= 0 && j < colunas) {
         var cell = tabela.rows[i].cells[j];
-        if (cell.className !== "blank") {
+        if (cell.className !== " coluna blank") {
           switch (matrix[i][j]) {
             case 9:
               break;
             case 0:
               cell.innerHTML = "";
-              cell.className = "blank";
+              cell.className = "coluna blank";
               limparCelulas(i, j);
               break;
             default:
