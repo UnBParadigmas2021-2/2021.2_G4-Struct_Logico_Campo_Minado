@@ -39,8 +39,10 @@ Adicione 1 ou mais vídeos com a execução do projeto.
 Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
 
 ## Fontes
-* https://github.com/vband/Campo-Minado
+* https://github.com/vband/Campo-Minado 
 * https://github.com/lohhans/MinesweeperProlog
 * https://buslogic.pro/content/docker
 * https://github.com/Anniepoo/swiplwebtut/
 * https://us.swi-prolog.org/pldoc/doc/home/jan/lib/swipl/library/http/http_json.pl
+* https://github.com/danieldebiasi/campo-minado
+* https://codepen.io/larii_d/pen/eEbJyZ 
