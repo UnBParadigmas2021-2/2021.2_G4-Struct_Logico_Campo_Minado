@@ -28,6 +28,8 @@ O projeto do paradigma lógico visa desenvolver uma aplicação do jogo campo mi
 ![Meio Flag](images/screenshots/meio_flag.png)
 
 ![Derrota](images/screenshots/derrota.png)
+
+![Vitoria](images/screenshots/vitoria.png)
 ## Instalação 
 **Linguagens**: Prolog<br>
 **Tecnologias**: SWI-Prolog version 8.5.5 for x86_64-linux e HTML<br>
