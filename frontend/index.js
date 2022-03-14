@@ -1,7 +1,8 @@
 var linhas = 10, colunas = 10, bombas = 10, matrix, tabela;
 const field = document.getElementById('field')
 var gameBotton = document.getElementById('init-game');
-const flag = "&#128681"
+const flagIcon = '🚩'
+var countBombs = 0
 
 //Consome a API
 const getUrl = (url) => {
@@ -46,11 +47,10 @@ function init() {
 function toggleMarkFlag(event){
   event.preventDefault()
   var cell = event.target;
-  console.log(cell.innerText)
-  if (cell.innerText === '🚩')
+  if (cell.innerText === flagIcon)
     cell.innerHTML = ""
   else if (cell.innerHTML === "" && cell.style.backgroundColor !== "gray")
-    cell.innerHTML = flag
+    cell.innerHTML = flagIcon
     cell.style.textAlign = "center";
 }
 
@@ -58,6 +58,10 @@ function verificar(event) {
   var cell = event.target;
   var linha = cell.parentNode.rowIndex;
   var coluna = cell.cellIndex;
+
+  if (cell.backgroundColor === "gray") 
+    return
+
   switch (matrix[linha][coluna]) {
     case 9:
       mostrarBombas();
@@ -70,12 +74,14 @@ function verificar(event) {
     case 0:
       cell.style.backgroundColor = "gray"
       cell.style.textAlign = "center";
+      countBombs+=1
       limparCelulas(linha, coluna);
       break;
     default:
       cell.innerHTML = matrix[linha][coluna];
       cell.style.backgroundColor = "gray"
       cell.style.textAlign = "center";
+      countBombs+=1
   }
   fimDeJogo();
 
@@ -95,6 +101,7 @@ function limparCelulas(l, c) {
               cell.className = "coluna blank";
               cell.style.backgroundColor = "gray"
               cell.style.textAlign = "center";
+              countBombs+=1
               limparCelulas(i, j);
               break;
             default:
@@ -102,6 +109,7 @@ function limparCelulas(l, c) {
               cell.className = "n" + matrix[i][j];
               cell.style.backgroundColor = "gray"
               cell.style.textAlign = "center";
+              countBombs+=1
           }
         }
       }
@@ -123,8 +131,8 @@ function mostrarBombas() {
 }
 
 function fimDeJogo() {
-  var cells = document.querySelectorAll(".blocked, .flag");
-  if (cells.length === bombas) {
+  console.log(countBombs)
+  if (100 - countBombs === bombas) {
     mostrarBombas();
     tabela.onclick = undefined;
     alert("Você venceu!");
