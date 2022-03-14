@@ -54,10 +54,12 @@ function verificar(event) {
       alert("Você perdeu!");
       break;
     case 0:
+      cell.style.backgroundColor = "gray"
       limparCelulas(linha, coluna);
       break;
-    default:
-      cell.innerHTML = matrix[linha][coluna];
+      default:
+        cell.innerHTML = matrix[linha][coluna];
+        cell.style.backgroundColor = "gray"
   }
   fimDeJogo();
 
@@ -68,18 +70,20 @@ function limparCelulas(l, c) {
     for (var j = c - 1; j <= c + 1; j++) {
       if (i >= 0 && i < linhas && j >= 0 && j < colunas) {
         var cell = tabela.rows[i].cells[j];
-        if (cell.className !== " coluna blank") {
+        if (cell.style.backgroundColor != "gray" ) {
           switch (matrix[i][j]) {
             case 9:
               break;
             case 0:
               cell.innerHTML = "";
               cell.className = "coluna blank";
+              cell.style.backgroundColor = "gray"
               limparCelulas(i, j);
               break;
             default:
               cell.innerHTML = matrix[i][j];
               cell.className = "n" + matrix[i][j];
+              cell.style.backgroundColor = "gray"
           }
         }
       }
