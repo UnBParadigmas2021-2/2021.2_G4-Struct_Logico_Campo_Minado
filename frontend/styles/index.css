@@ -72,7 +72,9 @@ body{
     cursor: pointer;
 }
 
-
+.field-table{
+    margin: 0 auto
+}
 
 .linha {
     background-color: #cfb9f2;
