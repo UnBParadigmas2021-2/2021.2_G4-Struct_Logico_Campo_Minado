@@ -110,7 +110,7 @@ function fimDeJogo() {
 
 gameBotton.addEventListener("click", (event) => {
   event.preventDefault();
-  console.log("fui clicado")
+  console.log("fui clicado");
+  location.reload();
 })
-
 onload = init;
