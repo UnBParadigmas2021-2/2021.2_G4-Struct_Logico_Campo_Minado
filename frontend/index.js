@@ -1,4 +1,4 @@
-var linhas = 10, colunas = 10, bombas = 10, matriz, tabela;
+var linhas = 10, colunas = 10, bombas = 10, matrix, tabela;
 const field = document.getElementById('field')
 var gameBotton = document.getElementById('init-game');
 
@@ -10,8 +10,8 @@ const getUrl = (url) => {
     })
     .then((data) => {
       console.log(data)
-      matriz = data.mine
-      console.log("Campo ---->", matriz)
+      matrix = data.mine
+      console.log("Campo ---->", matrix)
     })
     .catch((err) => {
       console.log('error: ', err)
@@ -28,10 +28,8 @@ function gerarTabela(l, c) {
     for (var j = 0; j < c; j++) {
       let td = document.createElement("td");
       td.classList.add("coluna");
-      //td.textContent = matriz[i][j]
       tr.appendChild(td)
     }
-    console.log(matriz[i][j])
     tabela.appendChild(tr)
   }
   console.log("Essa é a nova tabela ------>", tabela)
@@ -47,7 +45,7 @@ function verificar(event) {
   var cell = event.target;
   var linha = cell.parentNode.rowIndex;
   var coluna = cell.cellIndex;
-  switch (matriz[linha][coluna]) {
+  switch (matrix[linha][coluna]) {
     case 9:
       mostrarBombas();
       cell.style.backgroundColor = "red";
@@ -59,7 +57,7 @@ function verificar(event) {
       limparCelulas(linha, coluna);
       break;
     default:
-      cell.innerHTML = matriz[linha][coluna];
+      cell.innerHTML = matrix[linha][coluna];
   }
   fimDeJogo();
 
@@ -71,7 +69,7 @@ function limparCelulas(l, c) {
       if (i >= 0 && i < linhas && j >= 0 && j < colunas) {
         var cell = tabela.rows[i].cells[j];
         if (cell.className !== "blank") {
-          switch (matriz[i][j]) {
+          switch (matrix[i][j]) {
             case 9:
               break;
             case 0:
@@ -80,8 +78,8 @@ function limparCelulas(l, c) {
               limparCelulas(i, j);
               break;
             default:
-              cell.innerHTML = matriz[i][j];
-              cell.className = "n" + matriz[i][j];
+              cell.innerHTML = matrix[i][j];
+              cell.className = "n" + matrix[i][j];
           }
         }
       }
@@ -92,7 +90,7 @@ function limparCelulas(l, c) {
 function mostrarBombas() {
   for (var i = 0; i < linhas; i++) {
     for (var j = 0; j < colunas; j++) {
-      if (matriz[i][j] === 9) {
+      if (matrix[i][j] === 9) {
         var cell = tabela.rows[i].cells[j];
         cell.innerHTML = "&#128163;";
         cell.className = "blank";
