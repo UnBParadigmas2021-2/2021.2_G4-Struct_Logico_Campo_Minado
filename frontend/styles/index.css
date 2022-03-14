@@ -71,3 +71,7 @@ body{
     transition: 0.4s;
     cursor: pointer;
 }
+
+.blocked, .flag {
+    background: lightgray;    
+}
