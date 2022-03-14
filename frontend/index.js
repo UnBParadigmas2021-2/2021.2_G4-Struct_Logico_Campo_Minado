@@ -117,5 +117,4 @@ gameBotton.addEventListener("click", (event) => {
   console.log("fui clicado");
   location.reload();
 })
-
 onload = init;
