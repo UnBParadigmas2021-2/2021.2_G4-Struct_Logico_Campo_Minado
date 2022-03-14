@@ -30,7 +30,11 @@ Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 Insira um manual ou um script para auxiliar ainda mais.
 
 ## Uso 
-Explique como usar seu projeto, caso haja algum passo a passo após o comando de execução.
+O jogo consiste em um pequeno conjunto de regras:  
+1 - Se você descobrir uma mina, perde e o jogo é finalizado.  
+2 - Se descobrir um quadrado vazio, o jogo continua.  
+3 - Se aparecer um número, ele informará quantas minas estão escondidas nos oito quadrados que o cercam. Você pode usar essa informação para deduzir em que quadrados próximos é seguro clicar.   
+**Bônus**: Clicando com o botão direito você pode marcar com uma bandeira onde suspeita que pode haver minas.  
 
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
