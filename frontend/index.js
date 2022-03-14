@@ -1,6 +1,7 @@
 var linhas = 10, colunas = 10, bombas = 10, matrix, tabela;
 const field = document.getElementById('field')
 var gameBotton = document.getElementById('init-game');
+const flag = "&#128681"
 
 //Consome a API
 const getUrl = (url) => {
@@ -38,7 +39,18 @@ function gerarTabela(l, c) {
 function init() {
   tabela = document.getElementById('field');
   tabela.onclick = verificar;
+  tabela.oncontextmenu = toggleMarkFlag
   gerarTabela(linhas, colunas);
+}
+
+function toggleMarkFlag(event){
+  event.preventDefault()
+  var cell = event.target;
+  console.log(cell.innerText)
+  if (cell.innerText === '🚩')
+    cell.innerHTML = ""
+  else if (cell.innerHTML === "" && cell.style.backgroundColor !== "gray")
+    cell.innerHTML = flag
 }
 
 function verificar(event) {
@@ -57,9 +69,9 @@ function verificar(event) {
       cell.style.backgroundColor = "gray"
       limparCelulas(linha, coluna);
       break;
-      default:
-        cell.innerHTML = matrix[linha][coluna];
-        cell.style.backgroundColor = "gray"
+    default:
+      cell.innerHTML = matrix[linha][coluna];
+      cell.style.backgroundColor = "gray"
   }
   fimDeJogo();
 
