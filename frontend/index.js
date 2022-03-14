@@ -11,9 +11,7 @@ const getUrl = (url) => {
       return response.json()
     })
     .then((data) => {
-      console.log(data)
       matrix = data.mine
-      console.log("Campo ---->", matrix)
     })
     .catch((err) => {
       console.log('error: ', err)
@@ -34,7 +32,6 @@ function gerarTabela(l, c) {
     }
     tabela.appendChild(tr)
   }
-  console.log("Essa é a nova tabela ------>", tabela)
 }
 
 function init() {
@@ -69,7 +66,9 @@ function verificar(event) {
       cell.style.textAlign = "center";
       tabela.onclick = undefined;
       tabela.oncontextmenu = undefined;
-      alert("Você perdeu!");
+      var span = document.getElementById('card-intro')
+      span.textContent = 'Você perdeu!'
+      span.style.color = 'red'
       break;
     case 0:
       cell.style.backgroundColor = "gray"
@@ -131,17 +130,17 @@ function mostrarBombas() {
 }
 
 function fimDeJogo() {
-  console.log(countBombs)
   if (100 - countBombs <= bombas) {
     mostrarBombas();
     tabela.onclick = undefined;
-    alert("Você venceu!");
+    var span = document.getElementById('card-intro')
+    span.textContent = 'Você venceu!'
+    span.style.color = '#00FF7F'
   }
 }
 
 gameBotton.addEventListener("click", (event) => {
   event.preventDefault();
-  console.log("fui clicado");
   location.reload();
 })
 onload = init;
