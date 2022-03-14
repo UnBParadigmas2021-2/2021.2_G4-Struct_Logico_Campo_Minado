@@ -1,0 +1,73 @@
+body{
+    font-family: 'Press Start 2P', cursive;
+    padding: 0;
+    margin: 0;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: cente;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+}
+
+.card{
+    border-radius: 20px;
+    box-shadow: 10px 10px 400px #753a88;
+    background-color: #753a88;
+}
+
+.top-card{
+    padding: 20px;
+    padding-top: 8px;
+    text-align: center;
+    color: #fff;
+}
+
+.top-card h2{
+    font-size: 18px;
+}
+
+.card-intro{
+    font-size: 12px;
+}
+
+.media-card{
+    height: 350px;
+    width: 550px;
+}
+
+.campo-minado{
+    width: 95%;
+    height: 95%;    
+    margin: 0 auto;
+    background-color: #C4C4C4;
+    border-radius: 10px;
+}
+
+.botton-card{
+    text-align: center;
+    padding: 20px;
+}
+
+.actions{
+    background-color: #00FF7F;
+    color: #fff;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 0 20px;
+    width: 180px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.actions:hover{
+    background-color: #05ec79;
+    transform: scale(1.1);
+    transition: 0.4s;
+    cursor: pointer;
+}
