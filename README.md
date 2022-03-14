@@ -21,14 +21,21 @@
 O projeto do paradigma lógico visa desenvolver uma aplicação do jogo campo minado (com todas as regras e peculiaridades) utilizando Prolog. 
 
 ## Screenshots
-Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
+![Inicio](images/screenshots/inicio.png)
 
+![Meio](images/screenshots/meio.png)
+
+![Meio Flag](images/screenshots/meio_flag.png)
+
+![Derrota](images/screenshots/derrota.png)
 ## Instalação 
 **Linguagens**: Prolog<br>
 **Tecnologias**: SWI-Prolog version 8.5.5 for x86_64-linux e HTML<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
-
+**Requisitos**: Docker e Docker Compose<br>
+**Execução**: Na raíz do projeto execute 
+```
+docker compose up
+```
 ## Uso 
 O jogo consiste em um pequeno conjunto de regras:  
 1 - Se você descobrir uma mina, perde e o jogo é finalizado.  
@@ -38,9 +45,6 @@ O jogo consiste em um pequeno conjunto de regras:
 
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
 
 ## Fontes
 * https://github.com/vband/Campo-Minado 
